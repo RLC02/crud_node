@@ -1,0 +1,63 @@
+<div class="container my-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #243447;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">SISTEMA WEB</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link active" aria-current="page" href="/">Cadastrar</a>
+                            <a class="nav-link" href="/consulta">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h4 class="mb-3">Agendamentos - Potenciais Clientes</h4>
+            <p class="text-secondary mb-4">Sistema utilizado para agendamento de serviços.</p>
+
+            <div class="table-responsive shadow-sm rounded">
+                <table class="table table-striped table-hover align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Origem</th>
+                            <th>Data de Contato</th>
+                            <th>Observação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each agendamentos}}
+                        <tr>
+                            <td>{{nome}}</td>
+                            <td>{{telefone}}</td>
+                            <td>{{origem}}</td>
+                            <td>{{data_contato}}</td>
+                            <td>{{observacao}}</td>
+                            <td>
+                                <a href="/editar/{{id}}" class="btn btn-sm btn-outline-primary me-2">Editar</a>
+                                <a href="/excluir/{{id}}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="6" class="text-muted">Nenhum agendamento encontrado.</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

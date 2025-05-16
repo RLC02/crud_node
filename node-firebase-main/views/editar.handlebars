@@ -1,0 +1,64 @@
+<div class="container my-5">
+  <div class="row mb-4">
+    <div class="col-12">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2c3e50;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">SISTEMA WEB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active" aria-current="page" href="/">Cadastrar</a>
+              <a class="nav-link" href="/consulta">Consultar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 bg-white p-4 shadow rounded">
+      <h5 class="mb-3 text-start">Editar - Agendamento de Potenciais Clientes</h5>
+      <p class="text-start text-secondary mb-4">Sistema utilizado para agendamento de serviços.</p>
+
+         <form action="/atualizar" method="POST" class="text-start">
+            <input type="hidden" name="id" value="{{id}}">
+
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" name="nome" id="nome" class="form-control" value="{{nome}}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone:</label>
+                <input type="tel" name="telefone" id="telefone" class="form-control" value="{{telefone}}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="origem" class="form-label">Origem:</label>
+                <select name="origem" id="origem" class="form-select" required>
+                <option value="celular" {{#if (eq origem "celular")}}selected{{/if}}>Celular</option>
+                <option value="whatsapp" {{#if (eq origem "whatsapp")}}selected{{/if}}>Whatsapp</option>
+                <option value="telefone_fixo" {{#if (eq origem "telefone_fixo")}}selected{{/if}}>Telefone Fixo</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="data_contato" class="form-label">Data do Contato:</label>
+                <input type="date" name="data_contato" id="data_contato" class="form-control" value="{{data_contato}}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="observacao" class="form-label">Observação:</label>
+                <textarea name="observacao" id="observacao" class="form-control" rows="4">{{observacao}}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+            </form>
+
+    </div>
+  </div>
+</div>
